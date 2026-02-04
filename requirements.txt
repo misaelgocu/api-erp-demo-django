@@ -1,0 +1,14 @@
+# Django Framework
+Django==6.0.1
+
+# Django REST Framework
+djangorestframework==3.15.2
+
+# CORS Headers
+django-cors-headers==4.7.0
+
+# Documentación API
+drf-spectacular==0.28.0
+
+# Servidor WSGI para producción
+gunicorn==21.2.0
