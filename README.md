@@ -154,7 +154,7 @@ git clone https://github.com/tu-usuario/tu-repo.git
 cd tu-repo/erp
 
 # Crear virtualenv
-mkvirtualenv --python=/usr/bin/python3.10 kfc-env
+mkvirtualenv --python=/usr/bin/python3.12 kfc-env
 
 # Instalar dependencias
 pip install -r requirements.txt
