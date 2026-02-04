@@ -42,14 +42,14 @@ class Migration(migrations.Migration):
             name='Sucursales',
             fields=[
                 ('id_sucursal', models.AutoField(primary_key=True, serialize=False)),
-                ('cc_suc', models.PositiveIntegerField(unique=True)),
+                ('id_marca', models.ForeignKey(db_column='id_marca', on_delete=django.db.models.deletion.CASCADE, related_name='sucursales', to='ventas.marcas')),
                 ('compania', models.PositiveIntegerField()),
+                ('cc_suc', models.PositiveIntegerField(unique=True)),
                 ('nombre_sucursal', models.CharField(max_length=100)),
                 ('fecha_inicio_suc', models.IntegerField(blank=True, null=True)),
                 ('fecha_fin_suc', models.IntegerField(blank=True, null=True)),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
                 ('updated_at', models.DateTimeField(auto_now=True)),
-                ('id_marca', models.ForeignKey(db_column='id_marca', on_delete=django.db.models.deletion.CASCADE, related_name='sucursales', to='ventas.marcas')),
             ],
             options={
                 'verbose_name_plural': 'Sucursales',

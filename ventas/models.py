@@ -38,25 +38,20 @@ class Marcas(models.Model):
 
 
 class Sucursales(models.Model):
-    id_sucursal = models.AutoField(primary_key=True) # Col 1 (1)
-    id_marca = models.ForeignKey(                    # Col 2 (1)
+    id_sucursal = models.AutoField(primary_key=True)
+    id_marca = models.ForeignKey(
         Marcas, 
         on_delete=models.CASCADE, 
         db_column='id_marca',
         related_name='sucursales'
     )
-    # ATENCIÓN AQUÍ: Intercambié el orden de cc_suc y compania 
-    # para que coincida con el dump: 1052 es compania, 201052 es cc_suc
-    compania = models.PositiveIntegerField()         # Col 3 (1052)
-    cc_suc = models.PositiveIntegerField(unique=True)# Col 4 (201052)
-    
-    nombre_sucursal = models.CharField(max_length=100) # Col 5 ('1052 - PH...')
-    
-    fecha_inicio_suc = models.IntegerField(null=True, blank=True) # Col 6
-    fecha_fin_suc = models.IntegerField(null=True, blank=True)    # Col 7
-    
-    created_at = models.DateTimeField(auto_now_add=True) # Col 8
-    updated_at = models.DateTimeField(auto_now=True)     # Col 9
+    compania = models.PositiveIntegerField()
+    cc_suc = models.PositiveIntegerField(unique=True)
+    nombre_sucursal = models.CharField(max_length=100)
+    fecha_inicio_suc = models.IntegerField(null=True, blank=True)
+    fecha_fin_suc = models.IntegerField(null=True, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
         db_table = 'sucursales'
