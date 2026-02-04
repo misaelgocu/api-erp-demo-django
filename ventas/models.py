@@ -38,24 +38,25 @@ class Marcas(models.Model):
 
 
 class Sucursales(models.Model):
-    id_sucursal = models.AutoField(primary_key=True)
-    # Relación 1:N - Una sucursal pertenece a una marca
-    id_marca = models.ForeignKey(
+    id_sucursal = models.AutoField(primary_key=True) # Col 1 (1)
+    id_marca = models.ForeignKey(                    # Col 2 (1)
         Marcas, 
         on_delete=models.CASCADE, 
         db_column='id_marca',
         related_name='sucursales'
     )
-    cc_suc = models.PositiveIntegerField(unique=True)
-    compania = models.PositiveIntegerField()
-    nombre_sucursal = models.CharField(max_length=100)
+    # ATENCIÓN AQUÍ: Intercambié el orden de cc_suc y compania 
+    # para que coincida con el dump: 1052 es compania, 201052 es cc_suc
+    compania = models.PositiveIntegerField()         # Col 3 (1052)
+    cc_suc = models.PositiveIntegerField(unique=True)# Col 4 (201052)
     
-    # Según diagrama son INT, probablemente para timestamps o formatos YYYYMMDD
-    fecha_inicio_suc = models.IntegerField(null=True, blank=True)
-    fecha_fin_suc = models.IntegerField(null=True, blank=True)
+    nombre_sucursal = models.CharField(max_length=100) # Col 5 ('1052 - PH...')
     
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
+    fecha_inicio_suc = models.IntegerField(null=True, blank=True) # Col 6
+    fecha_fin_suc = models.IntegerField(null=True, blank=True)    # Col 7
+    
+    created_at = models.DateTimeField(auto_now_add=True) # Col 8
+    updated_at = models.DateTimeField(auto_now=True)     # Col 9
 
     class Meta:
         db_table = 'sucursales'
@@ -63,7 +64,6 @@ class Sucursales(models.Model):
 
     def __str__(self):
         return f"{self.cc_suc} - {self.nombre_sucursal}"
-
 
 class Ventas(models.Model):
     # Usamos BigAutoField si prevemos millones de registros de ventas (escalabilidad)

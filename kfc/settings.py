@@ -29,7 +29,7 @@ ALLOWED_HOSTS = [
     'masters-humanities-creek-authority.trycloudflare.com',
     'localhost',
     '127.0.0.1',
-    '*' # temporalmente, aqui se listan solo losssss dominios
+    'misael.pythonanywhere.com' # temporalmente, aqui se listan solo losssss dominios
 ]
 
 CORS_ALLOWED_ORIGINS = [
