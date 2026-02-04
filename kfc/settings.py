@@ -163,8 +163,8 @@ REST_FRAMEWORK = {
 }
 
 SPECTACULAR_SETTINGS = {
-    'TITLE': 'KFC API Project',
-    'DESCRIPTION': 'Documentación de API para el sistema de ventas KFC',
+    'TITLE': 'API Project',
+    'DESCRIPTION': 'Documentación de API para el sistema de ventas',
     'VERSION': '1.0.0',
     'SERVE_INCLUDE_SCHEMA': False,
 }

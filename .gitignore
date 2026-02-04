@@ -47,3 +47,6 @@ htmlcov/
 *.bak
 *.tmp
 .cache/
+
+# SQL files
+*.sql
