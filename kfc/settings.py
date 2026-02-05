@@ -26,17 +26,14 @@ SECRET_KEY = 'django-insecure-alr53#$2bimd$*p=1&wfb8odhu9_vbonie9sunwr6^f!cfxz+y
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'masters-humanities-creek-authority.trycloudflare.com',
     'localhost',
     '127.0.0.1',
     'misael.pythonanywhere.com' # temporalmente, aqui se listan solo losssss dominios
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    'http://localhost:5173', #cambiarlo cuando se cambie el dominio
-    "http://127.0.0.1:5173",
     "https://erp-demo-mgc.netlify.app",
-    "*"
+    'http://localhost:5173', #cambiarlo cuando se cambie el dominio
 ]
 
 # Permite que el navegador envíe headers personalizados
@@ -54,11 +51,23 @@ CORS_ALLOW_HEADERS = [
     'cloudflare-cdn-cookie-protection'
 ]
 
+# Métodos permitidos
+CORS_ALLOW_METHODS = [
+    'DELETE',
+    'GET',
+    'OPTIONS',
+    'PATCH',
+    'POST',
+    'PUT',
+]
+
+# Permitir credenciales (cookies, etc)
+CORS_ALLOW_CREDENTIALS = True
+
 # IMPORTANTE: Debe incluir el protocolo (http:// o https://)
 CSRF_TRUSTED_ORIGINS = [
     'https://erp-demo-mgc.netlify.app', # cambiar por el dominio 
-    'https://masters-humanities-creek-authority.trycloudflare.com',
-    'https://exam-robot-balanced-menu.trycloudflare.com/',
+    'https://misael.pythonanywhere.com',
 ]
 
 
@@ -73,7 +82,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'drf_spectacular',
-    'corsheaders',
     'corsheaders',
     'ventas'
 ]
