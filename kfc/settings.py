@@ -35,7 +35,8 @@ ALLOWED_HOSTS = [
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:5173', #cambiarlo cuando se cambie el dominio
     "http://127.0.0.1:5173",
-    "https://erp-demo-mgc.netlify.app"
+    "https://erp-demo-mgc.netlify.app",
+    "*"
 ]
 
 # Permite que el navegador envíe headers personalizados
