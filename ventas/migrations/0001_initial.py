@@ -60,6 +60,7 @@ class Migration(migrations.Migration):
             name='Ventas',
             fields=[
                 ('id_dft', models.BigIntegerField(primary_key=True, serialize=False)),
+                ('id_sucursal', models.ForeignKey(db_column='id_sucursal', on_delete=django.db.models.deletion.PROTECT, related_name='ventas', to='ventas.sucursales')),
                 ('fecha_dft', models.IntegerField()),
                 ('fecha', models.DateField()),
                 ('periodo', models.CharField(blank=True, max_length=50, null=True)),
@@ -76,7 +77,6 @@ class Migration(migrations.Migration):
                 ('iva_ventana', models.DecimalField(decimal_places=2, default=0.0, max_digits=15)),
                 ('vtas_ventana', models.DecimalField(decimal_places=2, default=0.0, max_digits=15)),
                 ('reembolso_cliente', models.DecimalField(decimal_places=2, default=0.0, max_digits=15)),
-                ('id_sucursal', models.ForeignKey(db_column='id_sucursal', on_delete=django.db.models.deletion.PROTECT, related_name='ventas', to='ventas.sucursales')),
             ],
             options={
                 'db_table': 'ventas',
