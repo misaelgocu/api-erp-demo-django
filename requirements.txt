@@ -12,3 +12,6 @@ drf-spectacular==0.28.0
 
 # Servidor WSGI para producción
 gunicorn==21.2.0
+
+# pip
+# pip install django-cors-headers
