@@ -29,8 +29,13 @@ class VentasViewSet(viewsets.ModelViewSet):
 
 # joins
 class VentasConRelacionesViewSet(viewsets.ReadOnlyModelViewSet):
-    queryset = Ventas.objects.select_related(
-        'id_sucursal__id_marca__id_empresa'
-    ).all()
     serializer_class = VentasConRelacionesSerializer
+    
+    def get_queryset(self):
+        # Obtenemos los IDs de sucursales que realmente existen
+        sucursales_existentes = Sucursales.objects.values_list('id_sucursal', flat=True)
+        # Filtramos solo ventas con sucursales existentes para evitar errores de integridad
+        return Ventas.objects.select_related(
+            'id_sucursal__id_marca__id_empresa'
+        ).filter(id_sucursal__in=sucursales_existentes)
 
