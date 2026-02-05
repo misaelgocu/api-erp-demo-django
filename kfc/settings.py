@@ -35,7 +35,7 @@ ALLOWED_HOSTS = [
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:5173', #cambiarlo cuando se cambie el dominio
     "http://127.0.0.1:5173",
-    "https://kfc-erp.netlify.app"
+    "https://erp-demo-mgc.netlify.app"
 ]
 
 # Permite que el navegador envíe headers personalizados
@@ -55,7 +55,7 @@ CORS_ALLOW_HEADERS = [
 
 # IMPORTANTE: Debe incluir el protocolo (http:// o https://)
 CSRF_TRUSTED_ORIGINS = [
-    'https://kfc-erp.netlify.app', # cambiar por el dominio 
+    'https://erp-demo-mgc.netlify.app', # cambiar por el dominio 
     'https://masters-humanities-creek-authority.trycloudflare.com',
     'https://exam-robot-balanced-menu.trycloudflare.com/',
 ]
